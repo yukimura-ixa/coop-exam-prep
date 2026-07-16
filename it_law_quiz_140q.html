@@ -31,6 +31,10 @@ header p{margin:4px 0 0;font-size:13px;opacity:.85}
 .exp b{color:#166534}
 #score{position:sticky;bottom:0;background:#1e3a5f;color:#fff;text-align:center;padding:12px;font-size:17px;font-weight:700;display:none}
 .foot{text-align:center;color:#64748b;font-size:12px;padding:20px 0}
+.fabs{position:fixed;right:14px;bottom:76px;display:flex;flex-direction:column;gap:10px;z-index:20}
+.fab{border:0;border-radius:50%;width:52px;height:52px;font-family:inherit;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25);color:#fff;display:flex;align-items:center;justify-content:center}
+.fab.check{background:#16a34a;font-size:12px;line-height:1.15}
+.fab.top{background:#64748b;font-size:22px}
 a.cs{display:inline-block;margin-top:6px;color:#fff;font-size:13px}
 </style>
 </head>
@@ -48,6 +52,10 @@ a.cs{display:inline-block;margin-top:6px;color:#fff;font-size:13px}
 </div>
 <div id="list"></div>
 <div class="foot">เฉลยอ้างอิงจากไฟล์เตรียมสอบของคุณ · ตรวจทานมาตราแล้ว</div>
+</div>
+<div class="fabs">
+<button class="fab check" onclick="grade()" title="ตรวจคำตอบ">ตรวจ<br>คำตอบ</button>
+<button class="fab top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="กลับขึ้นบน">↑</button>
 </div>
 <div id="score"></div>
 <script>
@@ -88,7 +96,6 @@ function grade(){
   const tot=items.length;
   s.style.display='block';
   s.textContent=`คะแนน ${correct}/${tot}  (ตอบ ${ans} ข้อ · ${tot?Math.round(correct/tot*100):0}%)`;
-  window.scrollTo(0,0);
 }
 function reset(){render();window.scrollTo(0,0);}
 function buildCats(){
