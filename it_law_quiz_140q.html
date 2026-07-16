@@ -93,6 +93,7 @@ function grade(){
 function reset(){render();window.scrollTo(0,0);}
 function buildCats(){
   const c=document.getElementById('cats');
+  c.innerHTML='';
   cats.forEach(cat=>{
     const b=document.createElement('button');b.className='chip'+(cat===cur?' on':'');
     b.textContent=cat==='ALL'?('ทั้งหมด ('+ALL.length+')'):cat+' ('+ALL.filter(q=>q.cat===cat).length+')';
